@@ -6,6 +6,7 @@ CREATE TABLE research_group (
     research_moto VARCHAR(255) NOT NULL,
     PRIMARY KEY (research_group_id)
 );
+
 CREATE TABLE academic (
     academic_id VARCHAR(10) NOT NULL,
     academic_name VARCHAR(100) NOT NULL,
@@ -15,12 +16,14 @@ CREATE TABLE academic (
     PRIMARY KEY (academic_id),
     FOREIGN KEY (research_group_id) REFERENCES research_group(research_group_id)
 );
+
 CREATE TABLE publication (
     publication_id VARCHAR(10) NOT NULL,
     publication_name VARCHAR(255) NOT NULL,
     publication_date DATE NOT NULL,
     PRIMARY KEY (publication_id)
 );
+
 CREATE TABLE authoring_link (
     academic_id VARCHAR(10) NOT NULL,
     publication_id VARCHAR(10) NOT NULL,
@@ -28,6 +31,7 @@ CREATE TABLE authoring_link (
     FOREIGN KEY (academic_id) REFERENCES academic(academic_id),
     FOREIGN KEY (publication_id) REFERENCES publication(publication_id)
 );
+
 --INSERT SCRIPTS
 /* Research Group Insert Script */
 INSERT INTO research_group VALUES ('G1', 'Aexo Group', '30-JUL-2003', 'Software Development Research');
